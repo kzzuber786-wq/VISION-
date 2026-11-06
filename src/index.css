@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #07090e;
+  color: #f1f5f9;
+  overflow-x: hidden;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.4);
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
+}
+
+.animate-scanline {
+  animation: scanline 4s linear infinite;
+}
+
+@keyframes radar-sweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-radar {
+  animation: radar-sweep 6s linear infinite;
+}
+
+@keyframes audio-wave {
+  0%, 100% { transform: scaleY(0.25); }
+  50% { transform: scaleY(1); }
+}
+
+.animate-wave-1 { animation: audio-wave 0.7s ease-in-out infinite 0.1s; transform-origin: bottom; }
+.animate-wave-2 { animation: audio-wave 0.7s ease-in-out infinite 0.3s; transform-origin: bottom; }
+.animate-wave-3 { animation: audio-wave 0.7s ease-in-out infinite 0.5s; transform-origin: bottom; }
+.animate-wave-4 { animation: audio-wave 0.7s ease-in-out infinite 0.2s; transform-origin: bottom; }
+.animate-wave-5 { animation: audio-wave 0.7s ease-in-out infinite 0.4s; transform-origin: bottom; }
+
